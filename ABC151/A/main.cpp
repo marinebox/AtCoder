@@ -15,5 +15,5 @@ using pii = pair<int, int>;
 
 
 int main(){
-    
+    char c;cin>>c;cout<<++c<<endl;return 0;
 }

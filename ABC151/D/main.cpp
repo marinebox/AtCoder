@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 #define rep(i, n) for(int i = 0; i < n; i++)
 #define vv(T) vector<vector<T>>
+#define cinvec(vec) for(auto &i : vec) cin >> i
 using namespace std;
 using ll = long long;
 using vint = vector<int>;
@@ -13,7 +14,5 @@ using qint = queue<int>;
 using sint = stack<int>;
 using pii = pair<int, int>;
 
-
 int main(){
-    
 }
