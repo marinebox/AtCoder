@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+#define rep(i, n) for(int i = 0; i < n; i++)
+#define vv(T) vector<vector<T>>
+using namespace std;
+using ll = long long;
+using vint = vector<int>;
+using vvint = vector<vector<int>>;
+using vll = vector<long long>;
+using vvll = vector<vector<long long>>;
+using vbool = vector<bool>;
+using vvbool = vector<vector<bool>>;
+using qint = queue<int>;
+using sint = stack<int>;
+using pii = pair<int, int>;
+
+const string YES = "Yes";
+const string NO = "No";
+
+int main(){
+    int x, y;
+    string ans = NO;
+    cin >> x >> y;
+    for(int crane = 0; crane <= x; crane++){
+        int turtle = x - crane;
+        int legs = turtle * 4 + crane  * 2;
+        if(legs == y){
+            ans = YES;
+            break;
+        }
+    }
+
+    cout << ans << endl;
+    return 0;
+}

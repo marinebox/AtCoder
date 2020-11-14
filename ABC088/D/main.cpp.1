@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+#define rep(i, n) for(int i = 0; i < n; i++)
+#define vv(T) vector<vector<T>>
+using namespace std;
+using ll = long long;
+using vint = vector<int>;
+using vvint = vector<vector<int>>;
+using vbool = vector<bool>;
+using vvbool = vector<vector<bool>>;
+
+void searcher(int x, int y, vv(char) &s, vv(bool) &isVisited, vvint &dist, int previousDist, int w, int h){
+    if(x < 0 || x >= w || y < 0 || y >= h) return;
+    int nowDist = previousDist + 1;
+    if(isVisited[y][x]){
+        if(dist[y][x] <= nowDist){
+            return;
+        }
+        else{
+            dist[y][x] = nowDist;
+        }
+    }
+    if(s[y][x] == '#') return;
+    isVisited[y][x] = true;
+    dist[y][x] = nowDist;
+
+    searcher(x + 1, y, s, isVisited, dist, nowDist, h, w);
+    searcher(x - 1, y, s, isVisited, dist, nowDist, h, w);
+    searcher(x, y + 1, s, isVisited, dist, nowDist, h, w);
+    searcher(x, y - 1, s, isVisited, dist, nowDist, h, w);
+}
+
+int main(){
+    int h, w;
+    cin >> h >> w;
+    vv(char) s(h, vector<char>(w));
+    int igeta = 0;
+    rep(i, h){
+        rep(j, w){
+            char ts;
+            cin >> ts;
+            s[i][j] = ts;
+            if(ts == '#') igeta++;
+        }
+    }
+
+    // int saitan = 1e9;
+    // s[0][0] = 's';
+    // s[h][w] = 'g';
+    vv(bool) isVisited(h, vector<bool>(w, false));
+    vvint dist(h, vector<int>(w, 1e9));
+    searcher(0, 0, s, isVisited, dist, -1, w, h);
+    int ans;
+    if(dist[h - 1][w - 1] == 1e9){
+        ans = -1;
+    }
+    else{
+        int tmp;
+        tmp = h * w - igeta - s[h - 1][w - 1];
+        ans = tmp;
+    }
+
+    cout << ans << endl;
+    return 0;
+}
