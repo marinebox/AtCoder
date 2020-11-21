@@ -16,5 +16,29 @@ using pii = pair<int, int>;
 
 
 int main(){
-    
+    ll n; cin >> n;
+    vll a(n);
+    vll t(n, 0);
+    for(ll i = 0; i < n; i++){
+        int tmp;
+        cin >> tmp;
+        a[i] = tmp;
+        if(i == 0) t[0] = tmp;
+        else{
+            t[i] = t[i - 1] + tmp;
+        }
+    }
+
+    ll accum = t.back();
+    ll ans = 1e10;
+    for(int i = 0; i < n - 1; i++){
+        auto x = t[i];
+        ll ar = accum - x;
+        // cout << ar << endl;
+        ll tmp = abs(x - ar);
+        ans = min(ans, tmp);
+    }
+
+    cout << ans << endl;
+    return 0;
 }
