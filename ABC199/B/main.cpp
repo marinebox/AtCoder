@@ -18,7 +18,35 @@ using sint = stack<int>;
 using pii = pair<int, int>;
 using dint  = deque<int>;
 
+void mark(int a, int b, vector<bool> &answers){
+    for(int i = 0; i < a; i++){
+        answers[i] = false;
+    }
+    for(int i = answers.size(); i > b; i--){
+        answers[i] = false;
+    }
+    return;
+}
+
 
 int main(){
-    
+    int n;
+    cin >> n;
+    vector<int> a(n), b(n);
+    for(auto &ai: a) cin >> ai;
+    for(auto &bi: b) cin >> bi;
+
+    vector<bool> answers(1005, true);
+    mark(a[0], b[0], answers);
+    for(int i = 1; i < n; i++){
+        mark(a[i], b[i], answers);
+    }
+
+    int ans = 0;
+    for(auto ai: answers){
+        if(ai) ans++;
+    }
+
+    cout << ans << endl;
+    return 0;
 }

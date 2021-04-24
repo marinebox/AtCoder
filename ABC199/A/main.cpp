@@ -22,5 +22,14 @@ const string YES = "Yes";
 const string NO = "No";
 
 int main(){
-    
+    int a, b, c;
+    cin >> a >> b >> c;
+    int l = a * a + b * b;
+    int r = c * c;
+
+    string ans = NO;
+    if(l < r) ans = YES;
+
+    cout << ans << endl;
+    return 0;
 }

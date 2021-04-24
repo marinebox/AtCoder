@@ -20,5 +20,28 @@ using dint  = deque<int>;
 
 
 int main(){
-    
+    int n; cin >> n;
+    string s; cin >> s;
+    int q; cin >> q;
+    bool is_reverse = false;
+    for(int i = 0; i < q; i++){
+        int t, a, b;
+        cin >> t >> a >> b;
+        a--;b--;
+        if(t == 1){
+            if(is_reverse){
+                if(a < n) a += n;
+                else a -= n;
+                if(b < n) b += n;
+                else b -= n;
+            }
+            swap(s[a], s[b]);
+        }
+        else{
+            is_reverse = !is_reverse;
+        }
+    }
+
+    cout << (is_reverse ? s.substr(n) + s.substr(0, n) : s) << endl;
+    return 0;
 }
