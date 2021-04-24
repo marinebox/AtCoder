@@ -13,32 +13,39 @@ using vvbool = vector<vector<bool>>;
 const string YES = "Yes";
 const string NO = "No";
 
+struct position{
+    int x, y;
+};
+
 int main(){
     int n;
     cin >> n;
-    vvint s(n, vint(3));
-    rep(i, n){
-        rep(j, 3){
-            cin >> s[i][j];
-        }
-    }
 
-    vint now = {0, 0, 0};
+    position present = {0, 0};
+    int time = 0;
+    string ans = YES;
     for(int i = 0; i < n; i++){
-        int time = s[i][0] - now[0];
-        int dist = abs(s[i][1] - now[1]) + abs(s[i][2] - now[2]);
-        if(dist > time){
-            cout << NO << endl;
-            return 0;
+        int t;
+        position next;
+        cin >> t >> next.x >> next.y;
+
+        int manhattan = abs(next.y - present.y) + abs(next.x - present.x);
+        int remainTime = t - time;
+        // cout << "remain: " << remainTime << endl;
+        // cout << "manhattan: " << manhattan << endl;
+        if((remainTime - manhattan) % 2 == 0 && remainTime - manhattan >= 0){
+            present = next;
+            time = t;
+            // cout << i << " is done" << endl;
         }
-        int diff = dist - time;
-        if(diff % 2 != 0){
-            cout << NO << endl;
-            return 0;
+        else{
+            ans = NO;
+            break;
         }
+        // cout << "time: " << time << endl;
     }
 
-    cout << YES << endl;
+    cout << ans << endl;
     return 0;
 }
 

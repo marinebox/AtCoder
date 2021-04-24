@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "lldb Debug",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${fileDirname}/a.out",
+            "args":[],
+            "preLaunchTask": "g++ build active file",
+        }
+    ]
+}

@@ -13,7 +13,8 @@ using qint = queue<int>;
 using sint = stack<int>;
 using pii = pair<int, int>;
 
-// const ll NOT = -1;
+#include <atcoder/math>
+using namespace atcoder;
 
 int main(){
     int t;
@@ -21,40 +22,20 @@ int main(){
     for(int i = 0; i < t; i++){
         ll n, s, k;
         cin >> n >> s >> k;
+        // ll ans = 0;
 
-        const ll NMOD = n % k;
-        const ll SMOD = s % k;
-        ll ans = 0;
+        auto d = gcd(n, gcd(s, k));
+        n /= d;
+        s /= d;
+        k /= d;
 
-        if(NMOD != 0 && SMOD != 0){
-            ans = -1;
-            cout << ans << endl;
+        if(gcd(k, n) != 1){
+            // ans = -1;
+            cout << -1 << endl;
             continue;
         }
 
-
-        // FIRST LOOP
-        ll dist = n - s;
-        ll tmp = dist / k;
-        ans += tmp;
-        ll startPosition = s + tmp * k;
-        if(startPosition < n){
-            startPosition += k;
-            ans++;
-        }
-
-        // MORE LOOP
-        startPosition %= n;
-        ll needMoveToOneLoop = n / k;
-        while(startPosition != 0){
-            ans += needMoveToOneLoop;
-            if(startPosition < NMOD){
-                ans++;
-            }
-            startPosition -= NMOD;
-            if(startPosition < 0) startPosition += k;
-        }
-
+        auto ans = inv_mod(k, n) * (n - s) % n;
         cout << ans << endl;
     }
 
