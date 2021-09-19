@@ -19,15 +19,6 @@ using pii = pair<int, int>;
 using dint  = deque<int>;
 using Graph = vector<vector<int>>;
 
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 
 int main(){
     

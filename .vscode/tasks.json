@@ -6,9 +6,8 @@
         {
             "label": "g++ build active file",
             "type": "shell",
-            "command": "/usr/local/bin/g++",
+            "command": "/usr/bin/g++",
             "args": [
-                "-g",
                 "-std=gnu++17",
                 "-O2",
                 "${file}",

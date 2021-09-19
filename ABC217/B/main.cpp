@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-// #include <atcoder/all>
+// #include <atcoder/all.hpp>
 #define rep(i, n) for(int i = 0; i < n; i++)
 #define vv(T) vector<vector<T>>
 #define coa cout << ans << endl; return 0;
@@ -19,16 +19,21 @@ using pii = pair<int, int>;
 using dint  = deque<int>;
 using Graph = vector<vector<int>>;
 
-{% if mod %}
-const long long MOD = {{ mod }};
-{% endif %}
-{% if yes_str %}
-const string YES = "{{ yes_str }}";
-{% endif %}
-{% if no_str %}
-const string NO = "{{ no_str }}";
-{% endif %}
 
 int main(){
-    
+    vector<pair<string, bool>> names = {{"ABC", 0}, {"ARC", 0}, {"AGC", 0}, {"AHC", 0}};
+    for(int i = 0; i < 3; i++){
+        string s; cin >> s;
+        for(auto &p:names){
+            if(s == p.first) p.second = true;
+        }
+    }
+
+    for(auto n:names){
+        if(!n.second){
+            cout << n.first << endl;
+            break;
+        }
+    }
+    return 0;
 }
