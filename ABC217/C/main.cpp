@@ -21,5 +21,14 @@ using Graph = vector<vector<int>>;
 
 
 int main(){
-    
+    int n; cin >> n;
+    vector<int> p(n), q(n);
+    for(int i = 0; i < n; i++){
+        int tp; cin >> tp;
+        tp--;
+        q[tp] = i + 1;
+    }
+    for(auto tq:q) cout << tq << ' ';
+    cout << endl;
+    return 0;
 }
