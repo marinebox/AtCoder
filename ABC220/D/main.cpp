@@ -21,6 +21,7 @@ using Graph = vector<vector<int>>;
 
 const long long MOD = 998244353;
 using mint = modint998244353;
+using mint10 = modint;
 
 int main(){
     int n; cin >> n;
@@ -28,6 +29,7 @@ int main(){
     // 1オリジンにする
     for(int i = 1; i <= n; i++) cin >> a[i];
 
+    mint10::set_mod(10);
     vector<vector<mint>> dp(n + 3, vector<mint>(13, 0));
     dp[1][a[1]] = 1;
     for(int i = 1; i <= n; i++){
