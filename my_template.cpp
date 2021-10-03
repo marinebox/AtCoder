@@ -51,8 +51,6 @@
 // #include <unordered_set>
 // #include <atcoder/all>
 #define rep(i, n) for(int i = 0; i < n; i++)
-#define vv(T) vector<vector<T>>
-#define coa cout << ans << endl; return 0;
 #define cinvec(vec) for(auto &i : vec) cin >> i
 #define deg_to_rad(deg) ((deg) / 360) * 2 * M_PI
 #define rad_to_deg(rad) ((rad) / 2 / M_PI) * 360
