@@ -6,9 +6,10 @@
         {
             "label": "g++ build active file",
             "type": "shell",
-            "command": "/usr/bin/g++",
+            "command": "/usr/bin/clang++",
             "args": [
-                "-std=gnu++17",
+                "-std=c++17",
+                "-stdlibi=libc++",
                 "-O2",
                 "${file}",
                 "-o",
