@@ -4,7 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "~/AtCoder/ac-library"
+                "${workspaceFolder}/ac-library"
             ],
             "defines": [],
             "macFrameworkPath": [],
